@@ -1,5 +1,5 @@
 # signalProxtQtso
-Simple proxy library for signalso that emits a signal when an OS signal happens
+Simple proxy library for signalso that emits a Qt signal when an OS signal happens
 
 Compilation
 -----------
