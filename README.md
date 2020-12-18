@@ -1,4 +1,4 @@
-# signalProxtQtso
+# signalProxyQtso
 Simple proxy library for signalso that emits a Qt signal when an OS signal happens
 
 Compilation
@@ -9,7 +9,7 @@ https://github.com/jouven/signalso
 
 https://github.com/jouven/threadedFunctionQtso
 
-Run (in signalProxtQtso source directory or pointing to it):
+Run (in signalProxyQtso source directory or pointing to it):
 
     qmake
 
