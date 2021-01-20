@@ -14,13 +14,16 @@ class EXPIMP_SIGNALPROXYQTSO signalProxy_c : public QObject
 
     void monitorSignal_f();
 
+    bool quitting_pri = false;
 public:
     signalProxy_c(QObject* parent_par);
 Q_SIGNALS:
     void signalTriggered_signal(int signalNumber);
+private Q_SLOTS:
+    void setQuitting_f();
 };
 
-//needs to be initialized
+//needs to be initialized (default is nullptr)
 extern EXPIMP_SIGNALPROXYQTSO signalProxy_c* signalProxy_ptr_ext;
 
 }
