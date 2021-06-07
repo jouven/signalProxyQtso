@@ -17,6 +17,7 @@ class EXPIMP_SIGNALPROXYQTSO signalProxy_c : public QObject
     bool quitting_pri = false;
 public:
     signalProxy_c(QObject* parent_par);
+
 Q_SIGNALS:
     void signalTriggered_signal(int signalNumber);
 private Q_SLOTS:

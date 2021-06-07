@@ -1,7 +1,6 @@
 #message($$QMAKESPEC)
 QT -= gui
 
-TARGET = signalProxyQtso
 TEMPLATE = lib
 
 !android:QMAKE_CXXFLAGS += -std=c++17
@@ -41,7 +40,7 @@ CONFIG(release, debug|release){
 }
 #debug
 CONFIG(debug, debug|release){
-    LIBS += -L$${MYPATH}home/jouven/mylibs/debug/  -lbackwardSTso
+    LIBS += -L$${MYPATH}home/jouven/mylibs/debug/
     DEPENDPATH += $${MYPATH}home/jouven/mylibs/debug
     QMAKE_RPATHDIR += $${MYPATH}home/jouven/mylibs/debug
     DEFINES += DEBUGJOUVEN

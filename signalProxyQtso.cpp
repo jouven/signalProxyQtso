@@ -6,10 +6,6 @@
 #include <QCoreApplication>
 
 #ifdef DEBUGJOUVEN
-//#include "backwardSTso/backward.hpp"
-//#include "comuso/loggingMacros.hpp"
-//#include <iostream>
-//#include <cstring>
 #endif
 
 
@@ -30,12 +26,13 @@ void signalProxy_c::monitorSignal_f()
 }
 
 signalProxy_c::signalProxy_c(QObject* parent_par)
- : QObject(parent_par)
+    : QObject(parent_par)
 {
     threadedFunction_c* threadedFunction_ptr(new threadedFunction_c(std::bind(&signalProxy_c::monitorSignal_f, this), true));
     QObject::connect(threadedFunction_ptr, &threadedFunction_c::finished, threadedFunction_ptr, &threadedFunction_c::deleteLater);
     QObject::connect(this, &signalProxy_c::signalTriggered_signal, threadedFunction_ptr, &threadedFunction_c::quit);
-    QObject::connect(qApp, &QCoreApplication::aboutToQuit, threadedFunction_ptr, &threadedFunction_c::deleteLater);
+    //this is to be able to clean up this class when normally exiting
+    QObject::connect(qApp, &QCoreApplication::aboutToQuit, this, &signalProxy_c::setQuitting_f);
     threadedFunction_ptr->start();
 }
 
