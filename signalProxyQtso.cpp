@@ -31,7 +31,7 @@ signalProxy_c::signalProxy_c(QObject* parent_par)
     threadedFunction_c* threadedFunction_ptr(new threadedFunction_c(std::bind(&signalProxy_c::monitorSignal_f, this), true));
     QObject::connect(threadedFunction_ptr, &threadedFunction_c::finished, threadedFunction_ptr, &threadedFunction_c::deleteLater);
     QObject::connect(this, &signalProxy_c::signalTriggered_signal, threadedFunction_ptr, &threadedFunction_c::quit);
-    //this is to be able to clean up this class when normally exiting
+    //this is to be able to clean up this class when quitting normally
     QObject::connect(qApp, &QCoreApplication::aboutToQuit, this, &signalProxy_c::setQuitting_f);
     threadedFunction_ptr->start();
 }

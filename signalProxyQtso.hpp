@@ -19,6 +19,7 @@ public:
     signalProxy_c(QObject* parent_par);
 
 Q_SIGNALS:
+    //this signal can be, at most, signaled once
     void signalTriggered_signal(int signalNumber);
 private Q_SLOTS:
     void setQuitting_f();
